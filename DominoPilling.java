@@ -6,13 +6,13 @@ public class DominoPilling {
 
     public static void main(String[] args) {
 
-        String text = "";
+        int m = 0;
+        int n = 0;
         Scanner skaner = new Scanner(System.in);
-        text = skaner.nextLine();
+        m = skaner.nextInt();
+        n = skaner.nextInt();
 
-
-
-        //System.out.println(result);
+        System.out.println((m*n)/2);
 
         System.exit(0);
     }
