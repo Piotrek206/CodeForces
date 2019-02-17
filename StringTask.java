@@ -48,7 +48,6 @@ public class StringTask {
             }
         }
 
-
         String result = String.join("",  terms);
         return result;
     }
