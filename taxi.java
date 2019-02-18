@@ -49,13 +49,18 @@ public class taxi {
             }
         }
 
+        System.out.println("counter4:" + counter4);
+        System.out.println("counter3:" + counter3);
+        System.out.println("counter2:" + counter2);
+        System.out.println("counter1:" + counter1);
+
         counter = counter4;
 
         if (counter2 % 2 == 0) counter += counter2/2;
-        else counter += (counter2-1)/2;
+        else counter += counter2/2 + counter2%2;
 
         if (counter3 >= counter1){
-            counter += counter1;
+            counter += counter1 + (counter3-counter1);
         }
         else {
             counter += counter3;
