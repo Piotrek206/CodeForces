@@ -25,99 +25,48 @@ public class taxi {
         }
     }
 
-    private void countTaxi() {
+    private int countTaxi() {
 
         Collections.sort(groupsSize, Collections.reverseOrder());
+        int counter4 = 0;
+        int counter3 = 0;
+        int counter2 = 0;
+        int counter1 = 0;
         int counter = 0;
-        Iterator<Integer> iterator = groupsSize.iterator();
 
-/*        System.out.println("Group size:\n");
-        System.out.println(groupsSize.toString());*/
-
-        for(int j=0; j<groupsSize.size(); j++){
-
-
-            System.out.println(groupsSize.toString());
-
-            if (groupsSize.get(j) == 4) {
-                groupsSize.remove(j);
-                groupsSize.add(j, 0);
-                counter++;
-            }
-
-            else if (groupsSize.get(j) == 3) {
-                System.out.println("znalazłem 3 <3");
-
-                for(int k=0; k<groupsSize.size(); k++) {
-                    System.out.println("into for");
-                    if (groupsSize.get(k) == 1) {
-                        groupsSize.remove(j);
-                        groupsSize.add(j, 0);
-                        groupsSize.remove(k);
-                        groupsSize.add(k, 0);
-                        counter++;
-                        break;
-                    }
-                }
-
-                for(int l=0; l<groupsSize.size(); l++) {
-                    System.out.println("into for2");
-                    if (groupsSize.get(l) == 3){
-                        groupsSize.remove(l);
-                        groupsSize.add(l, 0);
-                        counter++;
-                        System.out.println(groupsSize.toString());
-                    }
-                }
-            }
-
-            else if (groupsSize.get(j) == 2) {
-                //to do
-            }
-
-            /*if (groupsSize.get(j) == 4){
-                counter ++;
+        for (int j=0; j<groupsSize.size(); j++){
+            if (groupsSize.get(j) == 4){
+                counter4++;
             }
             else if (groupsSize.get(j) == 3){
-                if (groupsSize.contains(1)){
-                    Integer nextGroup = iterator.next();
-                    while(iterator.hasNext())
-                    {
-                        if (nextGroup.equals(1))
-                        {
-                            iterator.remove();
-                            System.out.println("removed");
-                            groupsSize.add(0);
-                            break;
-                        }
-                    }
-                    counter++;
-                }
+                counter3++;
             }
             else if (groupsSize.get(j) == 2){
-                if (groupsSize.contains(2)){
-                    while(iterator.hasNext())
-                    {
-                        if (iterator.next().equals(2))
-                        {
-                            iterator.remove();
-                            groupsSize.add(0);
-                            break;
-                        }
-                    }
-                    counter++;
-                }
+                counter2++;
             }
             else if (groupsSize.get(j) == 1){
-                System.out.println("1");
+                counter1++;
             }
-            else if (groupsSize.get(j) == 0){
-                System.out.println("0");
-                continue;
-            }*/
+        }
+
+        counter = counter4;
+
+        if (counter2 % 2 == 0) counter += counter2/2;
+        else counter += (counter2-1)/2;
+
+        if (counter3 >= counter1){
+            counter += counter1;
+        }
+        else {
+            counter += counter3;
+            if (counter2 % 2 != 0){
+                if ((counter1-counter3)%2 == 0)
+                    counter += (counter1-counter3)%2;
+                else counter += (counter1-counter3)%2 + 1;
+            }
         }
 
         System.out.println("Counter: " + counter);
-        System.out.println(groupsSize.toString());
+        return counter;
     }
 }
