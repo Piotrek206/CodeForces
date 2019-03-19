@@ -49,11 +49,6 @@ public class taxi {
             }
         }
 
-        System.out.println("counter4:" + counter4);
-        System.out.println("counter3:" + counter3);
-        System.out.println("counter2:" + counter2);
-        System.out.println("counter1:" + counter1);
-
         counter = counter4;
 
         if (counter2 % 2 == 0) counter += counter2/2;
@@ -71,7 +66,7 @@ public class taxi {
             }
         }
 
-        System.out.println("Counter: " + counter);
+        System.out.println(counter);
         return counter;
     }
 }
